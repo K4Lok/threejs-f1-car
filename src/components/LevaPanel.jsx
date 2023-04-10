@@ -1,21 +1,26 @@
 import { useEffect } from "react"
-import { useControls } from "leva"
+import { Leva, useControls } from "leva"
 import { useFrame } from "@react-three/fiber"
 import { useConfigurator } from "../context/Configurator"
 
+import { useMediaQuery } from "react-responsive"
+
 export function LevaPanel() {
+    const isMobile = useMediaQuery({ query: '(max-width: 700px)'})
     const { setCarBody, setCarFrontAndNose, setCarBase, setCarExhaust, setCarRims, setCarTyreType, setCarTest, } = useConfigurator()
 
-    // const position = {
-    //     x: -5.2,
-    //     y: 1.6,
-    //     z: 1.6
-    // }
-    const position = {
+    const mobilePosition = {
+        x: -2.7,
+        y: 2.7,
+        z: 1.3
+    }
+    const desktopPosition = {
         x: -1.3,
         y: 0.5,
         z: 0.7
     }
+
+    const position = isMobile ? mobilePosition : desktopPosition
 
     const cameraOptions = {
         x: {
