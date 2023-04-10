@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { Leva, useControls } from "leva"
+import { useControls } from "leva"
 import { useFrame } from "@react-three/fiber"
 import { useConfigurator } from "../context/Configurator"
 
