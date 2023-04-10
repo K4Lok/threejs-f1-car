@@ -46,6 +46,8 @@ export function LevaPanel() {
     const {x, y, z, enableOrbitControl} = useControls('Position & Camera', {
         ...cameraOptions,
         enableOrbitControl: false,
+    }, {
+        collapsed: isMobile ? true : false
     })
 
     const { carBody, carFrontAndNose, carBase, carExhaust, carRims, carTyreType, carTest, } = useControls('Car Styling', {
