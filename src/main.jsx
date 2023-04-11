@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import { ConfiguratorProvider } from './context/Configurator'
 import './reset.css'
+
+import { ConfiguratorProvider } from './context/Configurator'
+import LoadingScreen from './components/LoadingScreen'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ConfiguratorProvider>
-      <App />
+      <Suspense fallback={<LoadingScreen />}>
+        <App />
+      </Suspense>
     </ConfiguratorProvider>
   </React.StrictMode>,
 )
